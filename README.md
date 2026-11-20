@@ -1,7 +1,7 @@
 CampusSpace — Rooms, Labs & Roll Number Tracker
 
 A full-stack campus facility and student allotment tracker that helps users check real-time room/lab availability, reserve time slots, and look up their assigned lab, classroom, walking directions, and roommates/lab partners using their roll number and an allotment PDF.   
-Screenshot 2026-11-19 at 2.22.51 PM.png
+
 +---------------------------+        +------------------------------------+        +-----------------------------------+
 |  Client UI                | <----> |  REST API + JWT/RBAC Middleware    | <----> |  Database                         |
 |  (React + TS + PDF.js)    |        |  (Node.js + Express)               |        |  (PostgreSQL / MongoDB / SQLite)  |
@@ -14,12 +14,12 @@ Screenshot 2026-11-19 at 2.22.51 PM.png
 Overview
 CampusSpace solves two everyday campus bottlenecks in one place:
 Live Room & Lab Tracker: View real-time availability (Available, Occupied, Reserved Soon, Under Maintenance), filter by room type, capacity, or equipment, and book open hourly slots with overlap validation.   
-Screenshot 2026-11-19 at 2.22.51 PM.png
+
 Roll Number & PDF Allotment Lookup: Upload an allotment/timetable PDF (parsed in the browser via PDF.js) and search by roll number to see your assigned lab, classroom, batch/slot, workstation/bed, directions, and paired roommates or lab mates.
 Target Audience: Students, faculty, lab coordinators, and campus admins.
 System Architecture
 Frontend: React, TypeScript, Vite, Tailwind CSS, Lucide React, and pdfjs-dist.   
-Screenshot 2026-11-19 at 2.22.51 PM.png
+
 Backend: Node.js and Express with JWT authentication and role-based access control.
 Database & Storage: PostgreSQL / MongoDB / SQLite for persistent records, with localStorage support for quick client-side persistence.
 Architecture Flow
@@ -43,7 +43,7 @@ Live status cards and KPI summary bars.
 Search and filter by room code/name, type, status, seating capacity, and equipment.
 Hourly timeline booking modal with double-booking prevention and maintenance ticket reporting.
 
-Screenshot 2026-11-19 at 2.22.51 PM.png
+
 3. Roll Number & PDF Allotment Lookup
 Client-side PDF parsing to map roll numbers to labs, classrooms, time slots, and seats/workstations.
 Instant roll number lookup showing assigned spaces, step-by-step directions, and co-assigned roommates/lab partners.
