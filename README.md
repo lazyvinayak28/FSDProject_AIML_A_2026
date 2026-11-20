@@ -76,3 +76,43 @@ GET	/api/allotments/:rollNumber	Lookup lab, class, directions & roommates/lab ma
 POST	/api/allotments/upload	Save parsed PDF allotment records
 GET / POST / PATCH	/api/maintenance	View, report, and resolve maintenance issues
 Development Roadmap
+Phase	Milestone	Duration
+1	Requirements, DB schema & UI design	
+2 days 
++------------------+          +------------------------+          +-------------------+
+|      USERS       |          |        BOOKINGS        |          |       ROOMS       |
++------------------+          +------------------------+          +-------------------+
+| PK user_id       | 1      N | PK booking_id          | N      1 | PK room_id        |
+|    name          |--------->| FK user_id             |<---------|    name           |
+|    email         |          | FK room_id             |          |    type           |
+|    password_hash |          |    purpose             |          |    building/floor |
+|    role          |          |    booking_date        |          |    capacity       |
+|    roll_number   |          |    start_time/end_time |          |    status         |
+|    department    |          |    status              |          |    equipment[]    |
++------------------+          +------------------------+          |    directions     |
+         |                                                        +-------------------+
+         | 1                                                               ^  ^
+         |                    +------------------------+                   |  | N
+         +------------------->|  MAINTENANCE_TICKETS   |-------------------+  |
+           (reports)        N | PK ticket_id           |                      |
+                              | FK room_id, reported_by|                      |
+                              |    issue_description   |                      |
+                              |    priority, status    |                      |
+                              +------------------------+                      |
+                                                                              |
+                              +------------------------+                      |
+                              |   STUDENT_ALLOTMENTS   |----------------------+
+                              | PK allotment_id        | (lab & class mapping)
+                              |    roll_number         |
+                              |    student_name        |
+                              |    batch_slot          |
+                              | FK lab_room_id         |
+                              | FK class_room_id       |
+                              |    workstation_or_bed  |
+                              +------------------------+
+FSD PROJECTSAMPLE SYSTEM DESIGN DOCUMENT.docx
+
+2	Auth, JWT & role-based access control	4 days
+3	Live room/lab dashboard, filters & slot booking	5 days
+4	PDF parser, roll number lookup & roommate/lab pairing	3 days
+5	Maintenance module, admin controls, testing & deployment	3 days
